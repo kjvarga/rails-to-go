@@ -1,0 +1,26 @@
+#header
+  .top-bar
+    .left
+      = image_tag 'AirSyndicate_sml.png', :alt => 'AirSyndicate'
+    .right
+      - if current_user
+        Welcome,
+        = link_to(current_user.first_name || current_user.email, current_user)
+        &nbsp;|&nbsp;
+        = link_to 'Logout', logout_path
+      - else
+        Welcome, please
+        = link_to 'Login', login_path
+        or
+        = link_to 'Sign Up', new_user_path
+    
+  .logo
+    %p
+      = image_tag 'AirSyndicate_lrg1.png', :alt => 'AirSyndicate'
+  .navigation
+    navigation
+    %ul
+      %li
+        link
+      %li
+        link

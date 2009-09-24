@@ -1,0 +1,15 @@
+%li
+  = form.label :first_name, 'First Name'
+  = form.text_field :first_name, :class => 'title span-5'
+%li
+  = form.label :last_name, 'Last Name'
+  = form.text_field :last_name, :class => 'title span-5'
+%li
+  = form.label :email
+  = form.text_field :email, :class => 'title span-7'
+%li
+  = form.label :password, form.object.new_record? ? 'Password' : "Change password"
+  = form.password_field :password, :class => 'title span-5'
+%li
+  = form.label :password_confirmation, 'Confirm Password'
+  = form.password_field :password_confirmation, :class => 'title span-5'

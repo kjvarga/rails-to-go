@@ -1,0 +1,57 @@
+body.bp { line-height: 1.5; font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; font-size: 75%; }
+body.bp .container { width: 950px; margin: 0 auto; overflow: hidden; display: inline-block; }
+body.bp .container { display: block; }
+
+#header a { color: #ffdd00; }
+#header a:visited { color: #ffaa00; }
+
+#header { display: inline; float: left; margin-right: 10px; width: 950px; background-color: #1144aa; }
+* html #header { overflow-x: hidden; }
+#header .top-bar { height: 30px; font-size: 1.1em; padding: 0 20px; color: white; background-color: #001177; }
+#header .top-bar .left, #header .top-bar .right { line-height: 30px; }
+#header .top-bar .left { float: left; }
+#header .top-bar .right { text-align: right; }
+#header .logo { display: inline; float: left; margin-right: 10px; width: 190px; float: left; }
+* html #header .logo { overflow-x: hidden; }
+#header .navigation { display: inline; float: left; margin-right: 0; width: 750px; float: left; }
+* html #header .navigation { overflow-x: hidden; }
+#header .navigation ul { float: right; display: inline; text-align: right; }
+#header .navigation ul li { padding-right: 20px; display: inline; }
+
+form.general { padding: 5px; background: #efefef; border: 1px solid #e5e5e5; }
+form.general ol { list-style: none; margin: 1em; }
+form.general li { clear: left; }
+form.general li input { margin: 0.1em 0 !important; }
+form.general li input[type="checkbox"] { margin: 0.75em 0 0 0 !important; }
+form.general li.indented { padding-left: 120px; margin-left: -10px; }
+form.general li.indented input { padding: 3px 10px; background: #151515; border: 1px solid #000; color: #FFF; float: left; cursor: pointer; }
+form.general li .fieldWithErrors { display: inline; }
+form.general label, form.general .label { display: inline; float: left; margin-right: 10px; width: 110px; font-size: 1.2em; margin: 0.5em 0; float: left; }
+* html form.general label, * html form.general .label { overflow-x: hidden; }
+form.general .label { font-weight: bold; }
+
+.display-table { font-size: 1.2em; }
+.display-table .section-header { clear: both; width: 100%; padding: 3px; background-color: #efefef; font-weight: bold; }
+.display-table .left-col { margin-right: 15px; float: left; clear: left; overflow: hidden; }
+.display-table .right-col { float: left; overflow: hidden; }
+.display-table .separator { height: 0.6em; clear: both; }
+
+.new_images h2, .artist_images h2 { margin-top: 20px; padding: 5px; background-color: #ddd; }
+.new_images .image, .artist_images .image { margin: 10px; padding: 10px; float: left; background-color: #6699ff; border: 1px solid #ccc; }
+.new_images .image .img, .artist_images .image .img { width: 160px; height: 160px; text-align: center; }
+.new_images .image .img a, .artist_images .image .img a { border: none; }
+.new_images .image .img img, .artist_images .image .img img { margin-bottom: 5px; }
+.new_images .image .title, .artist_images .image .title { width: 160px; overflow-x: hidden; }
+.new_images .image .size, .artist_images .image .size { font-weight: bold; font-size: 1.2em; }
+.new_images .image .link, .artist_images .image .link { overflow: hidden; width: 160px; height: 36px; }
+.new_images .image .admin-links, .artist_images .image .admin-links { float: right; }
+.new_images .image:hover, .artist_images .image:hover { background-color: #bbeeff; }
+
+#breadcrumbs { padding: 10px; font-size: 18px; }
+
+form.bp .error h2 { font-size: 1.3em; }
+form.bp .error p, form.bp .error ul { margin-bottom: 0.5em; }
+form.bp select.title { font-size: 1.5em; }
+
+#footer { display: inline; float: left; margin-right: 10px; width: 950px; height: 100px; background-color: #5588ee; margin-top: 20px; }
+* html #footer { overflow-x: hidden; }

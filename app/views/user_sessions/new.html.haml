@@ -1,0 +1,24 @@
+%br 
+%h2
+  Login
+- form_for @user_session, :html => { :class => 'general bp span-9' } do |f|
+
+  %ol
+    %li
+      %p.large
+        Don't yet have an account?
+        = link_to 'Sign Up', new_user_path
+  = display_error_messages { f.error_messages }
+  %ol
+    %li
+      = f.label :email
+      = f.text_field :email, :class => 'title span-5'
+    %li
+      = f.label :password
+      = f.password_field :password, :class => 'title span-5'
+    %li
+      = f.label :remember_me, 'Remember Me'
+      = f.check_box :remember_me
+    %li.indented
+      = f.submit "Login"
+    %li

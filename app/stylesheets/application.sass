@@ -1,0 +1,182 @@
+@import blueprint.sass
+@import partials/base.sass
+
+body.bp
+  line-height: 1.5
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif
+  color: #333333
+  font-size: 75%
+  .container
+    +container
+
+#header
+  a
+    :color #ffdd00
+    
+    &:visited
+      :color = #ffaa00
+    
+#header
+  +column(24)
+  background-color = !theme_primary - #222
+    
+  .top-bar
+    :height 30px
+    :font-size 1.1em
+    :padding 0 20px
+    :color white
+    :background-color = !theme_primary - #555
+    
+    .left, .right
+      :line-height 30px
+    .left
+      :float left
+    .right
+      :text-align right
+      
+  .logo
+    +column(5)
+    float: left
+    
+  .navigation
+    +column(19, true)
+    float: left
+    ul
+      float: right
+      display: inline
+      text-align: right
+    ul li
+      padding-right: 20px
+      display: inline
+
+form.general
+  :padding 5px
+  :background #efefef
+  :border 1px solid #e5e5e5
+
+  ol
+    :list-style none
+    :margin 1em
+
+  li
+    :clear left
+    input
+      :margin 0.1em 0 !important
+      &[type="checkbox"]
+        :margin 0.75em 0 0 0 !important
+        
+    &.indented
+      +prepend(3)
+      :margin-left -10px
+      input
+        :padding 3px 10px
+        :background #151515
+        :border 1px solid #000
+        :color #FFF
+        :float left
+        :cursor pointer
+
+    .fieldWithErrors
+      :display inline
+      
+  label, .label
+    +column(3)
+    :font-size 1.2em
+    :margin 0.5em 0
+    :float left
+  
+  .label
+    :font-weight bold
+    
+  #h2
+    //:font-size 1em
+
+.display-table
+  :font-size 1.2em
+  
+  .section-header
+    :clear both
+    :width 100%
+    :padding 3px
+    :background-color #efefef
+    :font-weight bold
+    
+  .left-col
+    :margin-right 15px
+    :float left
+    :clear left
+    :overflow hidden
+    
+  .right-col
+    :float left
+    :overflow hidden
+  
+  .separator
+    :height 0.6em
+    :clear both
+
+.new_images, .artist_images
+  h2
+    :margin-top 20px
+    :padding 5px
+    :background-color #ddd
+    
+  .image
+    :margin 10px
+    :padding 10px
+    :float left
+    :background-color = !theme_primary + #333
+    :border 1px solid #ccc
+  
+    .img
+      :width 160px
+      :height 160px
+      :text-align center
+    
+      & a
+        :border none
+        
+      img
+        :margin-bottom 5px
+        
+    .title
+      :width 160px
+      :overflow-x hidden
+      
+    .size
+      :font-weight bold
+      :font-size 1.2em
+    
+    .link
+      :overflow hidden
+      :width 160px
+      :height 36px
+  
+    .admin-links
+      :float right
+      
+    &:hover
+      :background-color = !theme_primary + #888
+    
+#breadcrumbs
+  padding: 10px
+  font-size: 18px
+
+
+form.bp
+  .error
+    h2
+      :font-size 1.3em
+    p, ul
+      :margin-bottom 0.5em
+
+  select.title
+    :font-size 1.5em
+
+
+#footer
+  +column(24)
+  height: 100px
+  background-color = !theme_primary + #222
+  :margin-top 20px
+  

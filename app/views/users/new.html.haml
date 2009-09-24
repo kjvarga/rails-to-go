@@ -1,0 +1,16 @@
+%br  
+%h2
+  Register
+  
+- form_for @user, :html => { :class => 'general bp span-11' } do |f|
+  %ol
+    %li
+      %p.large
+        Already have an account?
+        = link_to 'Login', login_path
+  = display_error_messages { f.error_messages }
+  %ol          
+    = render :partial => "form", :object => f
+    %li.indented
+      = f.submit "Register"
+    %br
