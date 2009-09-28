@@ -8,6 +8,6 @@ class Scaffold::UsersController < Scaffold::BaseController
     config.list.sorting = { :name => 'ASC' }
     
     config.columns[:name].sort_by :sql => 'first_name || \' \' || last_name'
-    #config.columns[:account_type].form_ui = :textarea
+    config.actions.exclude :show
   end
 end

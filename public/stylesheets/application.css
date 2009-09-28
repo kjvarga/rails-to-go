@@ -88,55 +88,57 @@ body.bp {
     /* line 101, ../../vendor/gems/chriseppstein-compass-0.8.16/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
     * html #header .navigation {
       overflow-x: hidden; }
-    /* line 63, ../../app/stylesheets/application.sass */
+    /* line 64, ../../app/stylesheets/application.sass */
     #header .navigation ul {
       float: left;
       display: inline;
       text-align: left;
       list-style: none;
       margin: 0; }
-    /* line 69, ../../app/stylesheets/application.sass */
+    /* line 71, ../../app/stylesheets/application.sass */
     #header .navigation ul li {
       float: left;
       line-height: 30px;
       padding: 0 10px; }
-      /* line 74, ../../app/stylesheets/application.sass */
+      /* line 76, ../../app/stylesheets/application.sass */
       #header .navigation ul li:hover {
-        background-color: #001177; }
-      /* line 77, ../../app/stylesheets/application.sass */
-      #header .navigation ul li a {
-        font-weight: bold; }
+        background-color: #001177;
+        cursor: pointer; }
       /* line 80, ../../app/stylesheets/application.sass */
+      #header .navigation ul li a {
+        font-weight: bold;
+        text-decoration: none; }
+      /* line 84, ../../app/stylesheets/application.sass */
       #header .navigation ul li a:visited {
         color: #ffdd00; }
 
-/* line 83, ../../app/stylesheets/application.sass */
+/* line 87, ../../app/stylesheets/application.sass */
 form.general {
   padding: 5px;
   background: #efefef;
   border: 1px solid #e5e5e5; }
-  /* line 88, ../../app/stylesheets/application.sass */
+  /* line 92, ../../app/stylesheets/application.sass */
   form.general ol {
     list-style: none;
     margin: 1em; }
-  /* line 92, ../../app/stylesheets/application.sass */
+  /* line 96, ../../app/stylesheets/application.sass */
   form.general li {
     clear: left; }
-    /* line 94, ../../app/stylesheets/application.sass */
+    /* line 98, ../../app/stylesheets/application.sass */
     form.general li input {
       margin: 0.1em 0 !important; }
-      /* line 96, ../../app/stylesheets/application.sass */
+      /* line 100, ../../app/stylesheets/application.sass */
       form.general li input[type="checkbox"] {
         margin: 0.75em 0 0 0 !important; }
-    /* line 99, ../../app/stylesheets/application.sass */
+    /* line 103, ../../app/stylesheets/application.sass */
     form.general li .fieldWithErrors {
       display: inline; }
-  /* line 102, ../../app/stylesheets/application.sass */
+  /* line 106, ../../app/stylesheets/application.sass */
   form.general .indented {
     padding-left: 120px;
     margin: 0.5em 0;
     margin-left: -10px; }
-    /* line 106, ../../app/stylesheets/application.sass */
+    /* line 110, ../../app/stylesheets/application.sass */
     form.general .indented input {
       padding: 3px 10px;
       background: #151515;
@@ -144,7 +146,7 @@ form.general {
       color: #FFF;
       float: left;
       cursor: pointer; }
-  /* line 114, ../../app/stylesheets/application.sass */
+  /* line 118, ../../app/stylesheets/application.sass */
   form.general label, form.general .label {
     display: inline;
     float: left;
@@ -156,55 +158,59 @@ form.general {
     /* line 101, ../../vendor/gems/chriseppstein-compass-0.8.16/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
     * html form.general label, * html form.general .label {
       overflow-x: hidden; }
-  /* line 120, ../../app/stylesheets/application.sass */
+  /* line 124, ../../app/stylesheets/application.sass */
   form.general .label {
     margin: 0;
     font-weight: bold; }
-  /* line 124, ../../app/stylesheets/application.sass */
+  /* line 128, ../../app/stylesheets/application.sass */
   form.general .title {
     font-size: 1.2em; }
 
-/* line 127, ../../app/stylesheets/application.sass */
+/* line 131, ../../app/stylesheets/application.sass */
 .display-table {
   font-size: 1.2em; }
-  /* line 130, ../../app/stylesheets/application.sass */
+  /* line 134, ../../app/stylesheets/application.sass */
   .display-table .section-header {
     clear: both;
     width: 100%;
     padding: 3px;
     background-color: #efefef;
     font-weight: bold; }
-  /* line 137, ../../app/stylesheets/application.sass */
+  /* line 141, ../../app/stylesheets/application.sass */
   .display-table .left-col {
     margin-right: 15px;
     float: left;
     clear: left;
     overflow: hidden; }
-  /* line 143, ../../app/stylesheets/application.sass */
+  /* line 147, ../../app/stylesheets/application.sass */
   .display-table .right-col {
     float: left;
     overflow: hidden; }
-  /* line 147, ../../app/stylesheets/application.sass */
+  /* line 151, ../../app/stylesheets/application.sass */
   .display-table .separator {
     height: 0.6em;
     clear: both; }
 
-/* line 152, ../../app/stylesheets/application.sass */
+/* line 156, ../../app/stylesheets/application.sass */
 #breadcrumbs {
   padding: 10px;
   font-size: 18px; }
 
-/* line 159, ../../app/stylesheets/application.sass */
+/* line 163, ../../app/stylesheets/application.sass */
 form.bp .error h2 {
   font-size: 1.3em; }
-/* line 161, ../../app/stylesheets/application.sass */
+/* line 165, ../../app/stylesheets/application.sass */
 form.bp .error p, form.bp .error ul {
   margin-bottom: 0.5em; }
-/* line 164, ../../app/stylesheets/application.sass */
+/* line 168, ../../app/stylesheets/application.sass */
 form.bp select.title {
   font-size: 1.5em; }
 
-/* line 168, ../../app/stylesheets/application.sass */
+/* line 173, ../../app/stylesheets/application.sass */
+.recent.posts .active-scaffold {
+  width: 300px; }
+
+/* line 177, ../../app/stylesheets/application.sass */
 #footer {
   display: inline;
   float: left;

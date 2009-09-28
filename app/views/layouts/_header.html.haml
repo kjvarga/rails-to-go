@@ -17,15 +17,15 @@
     %ul
       - if current_user
         %li
-          = link_to 'Posts', posts_url
+          = link_to 'Home', root_url
         - if current_user.is_admin_type?
-          %li
-            = link_to 'Sites', :controller => 'sites'
-          %li
-            = link_to 'Server Settings', server_url
-          %li
-            = link_to 'Users', :scaffold_users
           %li
             = link_to 'Posts', :scaffold_posts
           %li
             = link_to 'Comments', :scaffold_comments
+          %li
+            = link_to 'Sites', :scaffold_sites
+          %li
+            = link_to 'Users', :scaffold_users
+          %li
+            = link_to 'Server Settings', server_url

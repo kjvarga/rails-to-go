@@ -29,3 +29,13 @@ $j(function() {
     $j('.container').css('overflow', 'visible');
   }
 });
+
+/**
+ * Bind click handlers to the navigation list items.
+ */
+$j(function() {
+  $j('.navigation li').click(function(e) {
+    var li = $j(this);
+    document.location = li.find('a').attr('href');
+  });
+});

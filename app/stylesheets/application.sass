@@ -55,17 +55,19 @@ body.bp
       
   .logo
     +column(5)
-    float: left
+    :float left
     
   .navigation
     +column(24, true)
-    float: left
+    :float left
+    
     ul
       :float left
       :display inline
       :text-align left
       :list-style none
       :margin 0
+      
     ul li
       :float left
       :line-height 30px
@@ -73,9 +75,11 @@ body.bp
       
       &:hover
         :background-color = !theme_primary - #555
-
+        :cursor pointer
+        
       a
         :font-weight bold
+        :text-decoration none
         
       a:visited
         :color = #ffdd00
@@ -164,6 +168,11 @@ form.bp
   select.title
     :font-size 1.5em
 
+.recent
+  &.posts 
+    .active-scaffold
+      :width 300px
+      
 
 #footer
   +column(24)

@@ -4,9 +4,9 @@ class Scaffold::PostsController < Scaffold::BaseController
   active_scaffold :posts do |config|
     
     # Columns
-    config.columns = [:created_at, :title, :content, :metadata_as_text, :sites]
+    config.columns = [:created_at, :title, :content, :metadata_as_text, :sites, :comments]
     config.columns[:metadata_as_text].label = 'Metadata'
-    config.columns[:metadata_as_text].description = 'Use Key: Value pairs'   
+    config.columns[:metadata_as_text].description = 'Use Key: Value pairs separated by newlines'   
     config.columns[:metadata_as_text].form_ui = :textarea
     config.columns[:metadata_as_text].options = { :rows => 5, :cols => 40 } 
     config.columns[:created_at].label = 'Added'
@@ -16,8 +16,8 @@ class Scaffold::PostsController < Scaffold::BaseController
     config.list.sorting = { :created_at => 'DESC' }
     
     # Nested
-    config.nested.add_link("Show Sites", [:sites])
-    config.nested.add_link("Show Comments", [:comments])
+    #config.nested.add_link("Show Sites", [:sites])
+    #config.nested.add_link("Show Comments", [:comments])
     config.actions.exclude :delete
   end
 end

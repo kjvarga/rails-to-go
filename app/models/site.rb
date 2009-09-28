@@ -1,9 +1,6 @@
 class Site < ActiveRecord::Base
-  has_and_belongs_to_many :posts
-  #has_and_belongs_to_many :comments
-  
-  attr_accessible :domain, :site_hash
-  
+  has_and_belongs_to_many :posts  
+  attr_accessible :domain, :site_hash  
   validates_uniqueness_of :domain
   
   def to_label

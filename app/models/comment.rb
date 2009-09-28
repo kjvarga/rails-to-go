@@ -7,10 +7,6 @@ class Comment < ActiveRecord::Base
   
   default_scope :order => 'created_at ASC'
   
-  #def sites
-  #  self.post.sites.collect { |site| site.to_label }.join(', ')
-  #end
-  
   def to_label
     self.comment
   end
