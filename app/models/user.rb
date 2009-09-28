@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :posts
+  
   acts_as_authentic
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :account_type
   attr_protected :account_type
   
   #
@@ -14,10 +16,18 @@ class User < ActiveRecord::Base
       super
     end
   end
+  
+  def name; to_label; end
+  
+  def to_label
+    "#{first_name} #{last_name}"
+  end
+  
+  def self.account_types; ['user', 'author', 'admin']; end
 end
 
 # == Schema Info
-# Schema version: 20090923074559
+# Schema version: 20090925080529
 #
 # Table name: users
 #

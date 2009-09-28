@@ -1,26 +1,31 @@
 #header
   .top-bar
     .left
-      = image_tag 'AirSyndicate_sml.png', :alt => 'AirSyndicate'
+      = link_to 'AirSyndicate', root_url
     .right
       - if current_user
         Welcome,
-        = link_to(current_user.first_name || current_user.email, current_user)
+        = link_to(current_user.first_name || current_user.email, 'account')
         &nbsp;|&nbsp;
-        = link_to 'Logout', logout_path
+        = link_to 'Logout', logout_url
       - else
         Welcome, please
-        = link_to 'Login', login_path
+        = link_to 'Login', login_url
         or
-        = link_to 'Sign Up', new_user_path
-    
-  .logo
-    %p
-      = image_tag 'AirSyndicate_lrg1.png', :alt => 'AirSyndicate'
+        = link_to 'Sign Up', new_account_url
   .navigation
-    navigation
     %ul
-      %li
-        link
-      %li
-        link
+      - if current_user
+        %li
+          = link_to 'Posts', posts_url
+        - if current_user.is_admin_type?
+          %li
+            = link_to 'Sites', :controller => 'sites'
+          %li
+            = link_to 'Server Settings', server_url
+          %li
+            = link_to 'Users', :scaffold_users
+          %li
+            = link_to 'Posts', :scaffold_posts
+          %li
+            = link_to 'Comments', :scaffold_comments

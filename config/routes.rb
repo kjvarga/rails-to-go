@@ -1,10 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
-
-  map.resources :user_sessions
-  map.resources :users
+  map.resource :server, :controller => 'servers'
+  map.resources :sites, :posts, :user_sessions, :admin_users
   map.resource :account, :controller => "users"
-  map.root :controller => 'users', :action => 'new'
-  
+  map.root :controller => 'home'
+
+  map.namespace :scaffold do |scaffold|
+    scaffold.resources :sites, :active_scaffold => true
+    scaffold.resources :posts, :active_scaffold => true
+    scaffold.resources :users, :active_scaffold => true
+    scaffold.resources :comments, :active_scaffold => true
+  end
+    
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 

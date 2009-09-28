@@ -1,0 +1,17 @@
+- form_for @server, :url => server_url, :html => { :class => 'general bp span-15' } do |f|
+  = display_error_messages { f.error_messages }
+  %ol          
+    %li
+      = f.label :shared_secret, 'Shared Secret'
+      = f.text_field :shared_secret, :class => 'title span-10'
+    %li
+      = f.label :metadata_as_text, 'Metadata'
+      .left{ :style => 'margin-top: 1em;' }
+        Enter as Key: Value pairs
+      = f.text_area :metadata_as_text, :class => 'title span-10'
+    %li.indented
+      = f.submit "Submit", :style => 'margin-right: 10px !important;'
+      = f.submit "Cancel", :onclick => "javascript: document.location.href = '#{server_url}'; return false;"
+    %br
+
+

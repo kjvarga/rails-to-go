@@ -1,0 +1,19 @@
+one:
+  shared_secret: MyString
+  metadata: MyText
+
+two:
+  shared_secret: MyString
+  metadata: MyText
+
+
+# == Schema Info
+# Schema version: 20090925080529
+#
+# Table name: servers
+#
+#  id            :integer         not null, primary key
+#  metadata      :text
+#  shared_secret :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime

@@ -5,6 +5,9 @@ require File.expand_path(File.join(File.dirname(__FILE__),"..","config","environ
 require 'spec/autorun'
 require 'spec/rails'
 
+# Require the blueprint
+require File.expand_path(File.dirname(__FILE__) + "/blueprints")
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
@@ -17,6 +20,10 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
+  # Reset sham for Machinist
+  config.before(:all)    { Sham.reset(:before_all)  }
+  config.before(:each)   { Sham.reset(:before_each) }
+  
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:

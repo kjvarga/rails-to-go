@@ -21,6 +21,9 @@ Rails::Initializer.run do |config|
   # cron tasks
   config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
 
+  # comments
+  config.gem 'jackdempsey-acts_as_commentable', :lib => 'acts_as_commentable', :source => "http://gems.github.com"
+  
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

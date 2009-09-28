@@ -1,0 +1,18 @@
+%br
+= title "Server Settings"
+- form_for @server, :html => { :class => 'general bp span-15' } do |f|
+  %ol          
+    %li
+      .label
+        Shared Secret:
+      .indented.title
+        = h @server.shared_secret
+    %li
+      .label
+        Metadata:
+      .indented.title
+        - @server.metadata.sort.each do |key, value|
+          = h(key) + ': ' + h(value) + '<br/>'
+    %li.indented
+      = f.submit "Edit", :onclick => "javascript: document.location.href = '#{edit_server_url}'; return false;"
+    %br
