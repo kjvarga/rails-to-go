@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  acts_as_taggable_on :tags
+  acts_as_taggable
   
   has_and_belongs_to_many :sites
   has_many :comments, :as => :commentable, :dependent => :destroy
@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   
   serialize :metadata, Hash
   attr_accessible :title, :content, :metadata, :metadata_as_text
+  
+  validates_presence_of :title, :content
   
   def metadata_as_text
     return '' if self.metadata.nil?

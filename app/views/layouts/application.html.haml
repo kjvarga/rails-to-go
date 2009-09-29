@@ -29,11 +29,9 @@
     = yield(:head)
 
   %body.bp
-    .container
+    .container.showgrid
       = render 'layouts/header'
       .clear
       = yield
       .clear
-    .container
       = render 'layouts/footer'
-      .clear

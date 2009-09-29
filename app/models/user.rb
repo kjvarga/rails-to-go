@@ -7,11 +7,13 @@ class User < ActiveRecord::Base
   
   #
   # Dynamically add:
-  #   account type discovery methods: is_admin_type, is_user_type?
+  #   account type discovery methods: is_admin_type?, is_user_type?
+  #     is_admin_or_author_type?, is_user_or_author_type?
   #
   def method_missing(method_id, *arguments)
     if match = /^is_(\w+)_type\?$/.match(method_id.to_s)
-      self.account_type == match[1]
+      types = match[1].split('_or_')
+      types.include?(self.account_type)
     else
       super
     end
@@ -24,6 +26,11 @@ class User < ActiveRecord::Base
   end
   
   def self.account_types; ['user', 'author', 'admin']; end
+
+  # Only admins can destroy users
+  def authorized_for_destroy?
+    return false unless current_user && current_user.is_admin_type?
+  end
 end
 
 # == Schema Info

@@ -6,6 +6,11 @@ class Site < ActiveRecord::Base
   def to_label
     self.domain
   end
+
+  # No one can destroy a site
+  def authorized_for_destroy?
+    return false
+  end
 end
 
 

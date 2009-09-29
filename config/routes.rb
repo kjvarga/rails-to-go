@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
     scaffold.resources :posts, :active_scaffold => true
     scaffold.resources :users, :active_scaffold => true
     scaffold.resources :comments, :active_scaffold => true
+    scaffold.resources :tags, :active_scaffold => true
   end
     
   map.login "login", :controller => "user_sessions", :action => "new"

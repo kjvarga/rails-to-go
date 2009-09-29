@@ -1,15 +1,16 @@
 class Scaffold::CommentsController < Scaffold::BaseController
-  before_filter :require_admin_user
+  before_filter :require_admin_or_author_user
   
   active_scaffold :comments do |config|
-    config.columns = [:comment, :name, :email, :created_at, :sites]
-    #config.columns[:metadata_as_text].label = 'Metadata'
-    #config.columns[:metadata_as_text].description = 'Use Key: Value pairs'    
+    # Columns
+    config.columns = [:comment, :name, :email, :created_at, :sites, :post]
     config.columns[:created_at].label = 'Added'
-    config.list.columns = [:created_at, :comment]
+    
+    # Listing
+    config.list.columns = [:created_at, :comment, :post]
     config.list.sorting = { :created_at => 'DESC' }
-    config.actions.exclude :nested
-    #config.nested.add_link("Posts's comments", [:comments])
-    #config.columns[:association_column].includes = nil
+    
+    # Update
+    config.update.columns.exclude :post
   end
 end

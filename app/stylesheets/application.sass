@@ -6,6 +6,11 @@ textarea
   :width auto
   :height auto
 / End reset
+
+/ Variables
+!navigation_height = 30px
+
+/ End variables
   
 .left
   :float left
@@ -31,9 +36,10 @@ body.bp
 #header
   +column(24)
   :background-color = !theme_primary - #222
+  :margin-bottom 10px
     
   .top-bar
-    :height 30px
+    :height 40px
     :font-size 1.1em
     :padding 0 20px
     :color white
@@ -60,19 +66,26 @@ body.bp
   .navigation
     +column(24, true)
     :float left
+    :background-color = !theme_primary - #222
+    :height = !navigation_height
     
     ul
       :float left
-      :display inline
       :text-align left
       :list-style none
       :margin 0
       
     ul li
       :float left
-      :line-height 30px
+      :line-height = !navigation_height
       :padding 0 10px
+      :border-bottom 4px solid white
+      :background-color = !theme_primary - #222
       
+      &.current
+        :background-color = !theme_primary - #555
+        :border-bottom = 4px solid !theme_primary - #555
+        
       &:hover
         :background-color = !theme_primary - #555
         :cursor pointer
@@ -169,14 +182,21 @@ form.bp
     :font-size 1.5em
 
 .recent
-  &.posts 
+  &.sites
     .active-scaffold
-      :width 300px
+      +column(6, true)
+      +prepend(1)
+  .active-scaffold
+    +column(17, false)
       
 
 #footer
   +column(24)
-  :height 100px
-  :background-color = !theme_primary + #222
+  :height 30px
+  :background-color = !theme_primary - #222
   :margin-top 20px
+  :line-height 30px
+  :color white
   
+  .content
+    :padding 0 30px

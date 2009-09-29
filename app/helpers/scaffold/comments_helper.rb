@@ -13,6 +13,7 @@ module Scaffold
     end
 
     def sites_form_column(record, input_name)
+      return ' - ' if record.post.nil?
       record.post.sites.collect do |site| 
         h(site.domain)
       end.join(', ')

@@ -16,16 +16,19 @@
   .navigation
     %ul
       - if current_user
-        %li
+        %li{ :class => current_page?(root_url) ? 'current' : '' }
           = link_to 'Home', root_url
-        - if current_user.is_admin_type?
-          %li
+        - if current_user.is_admin_or_author_type?
+          %li{ :class => current_page?(:scaffold_posts) ? 'current' : '' }
             = link_to 'Posts', :scaffold_posts
-          %li
+          %li{ :class => current_page?(:scaffold_comments) ? 'current' : '' }
             = link_to 'Comments', :scaffold_comments
-          %li
+          %li{ :class => current_page?(:scaffold_sites) ? 'current' : '' }
             = link_to 'Sites', :scaffold_sites
-          %li
+          %li{ :class => current_page?(:scaffold_tags) ? 'current' : '' }
+            = link_to 'Tags', :scaffold_tags          
+        - if current_user.is_admin_type?
+          %li{ :class => current_page?(:scaffold_users) ? 'current' : '' }
             = link_to 'Users', :scaffold_users
-          %li
+          %li{ :class => current_page?(server_url) ? 'current' : '' }
             = link_to 'Server Settings', server_url

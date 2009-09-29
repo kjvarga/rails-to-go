@@ -23,6 +23,27 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.record
     end
 
+  #
+  # Dynamically add:
+  #   account type restriction methods: require_admin_user, require_admin_or_author_user etc
+  #
+  def method_missing(method_id, *arguments)
+    if match = /^require_(\w+)_user$/.match(method_id.to_s)
+      unless current_user and current_user.send("is_#{match[1]}_type?")
+        store_location
+        flash[:notice] = "You do not have privileges to access this page"
+        redirect_to root_url
+        return false
+      end
+    else
+      super
+    end
+  end
+  
+    def require_admin_user
+
+    end
+
     def require_user
       unless current_user
         store_location
@@ -31,16 +52,7 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-
-    def require_admin_user
-      unless current_user and current_user.is_admin_type?
-        store_location
-        flash[:notice] = "You must have Administrator privileges to access this page"
-        redirect_to account_url
-        return false
-      end
-    end
-     
+         
     def require_no_user
       if current_user
         store_location
