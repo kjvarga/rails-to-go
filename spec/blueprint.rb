@@ -10,7 +10,7 @@ Sham.tag(:unique => false) { ["Adaptive", "Advanced", "Ameliorated", "Assimilate
 Sham.content(:unique => false) { Faker::Lorem.paragraphs }
 Sham.title { Faker::Company.catch_phrase }
 Sham.metadata_as_text(:unique => false) { "Name: KarlVarga\nRating: R" }
-Sham.user(:unique => false) { User.find :first, :order => 'RANDOM()' }
+Sham.user(:unique => false) { User.find :first, :order => 'RAND()' }
 Sham.account_type(:unique => false) { %w{user admin author}.rand }
 Sham.domain(:unique => false) { Faker::Internet.domain_name }
 Sham.comment(:unique => false) { Faker::Lorem.paragraph }
@@ -67,7 +67,7 @@ def seed_database(counts={})
   until Post.count == counts[:posts]
     p = Post.make(:user => Sham.user) do |post|
       rand(10).times { post.comments.make }
-      post.sites = Site.find :all, :order => 'RANDOM()', :limit => rand(counts[:sites])
+      post.sites = Site.find :all, :order => 'RAND()', :limit => rand(counts[:sites])
     end  
     puts "Created post #{p.title}"  
   end
