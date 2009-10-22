@@ -2,6 +2,7 @@ set :application, "airsyndicate.com.au"
 
 set :scm, 'git'
 set :repository,  "git@github.com:Creagency/air-syndicate.git"
+set :branch, 'master'
 
 set :user, 'deployer'
 set :rails_env, 'production'
