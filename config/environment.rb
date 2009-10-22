@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem 'searchlogic'
   config.gem "mbleigh-acts-as-taggable-on", :source => "http://gems.github.com", :lib => "acts-as-taggable-on"
+  config.gem 'machinist',   :lib => false
   
   # cron tasks
   config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'

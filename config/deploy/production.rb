@@ -46,6 +46,6 @@ task :invoke do
 end
 
 task :passenger_vhost do
-  sudo "cp #{latest_release}/config/#{application}.conf /etc/httpd/passenger_vhosts/"
+  sudo "cp #{latest_release}/config/#{application}.conf /www/rails_apps/passenger_vhosts/"
   sudo "/usr/sbin/apachectl graceful"
 end

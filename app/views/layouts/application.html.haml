@@ -29,7 +29,7 @@
     = yield(:head)
 
   %body.bp
-    .container.showgrid
+    .container{ :class => (!Rails.env.production? ? 'showgrid' : '') }
       = render 'layouts/header'
       .clear
       = yield
