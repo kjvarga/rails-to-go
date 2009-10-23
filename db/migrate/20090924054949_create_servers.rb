@@ -5,9 +5,6 @@ class CreateServers < ActiveRecord::Migration
       t.text :metadata
       t.timestamps
     end
-    
-    require 'config/initializers/site_defaults'
-    Server.create(:shared_secret => SiteDefaults::SHARED_SECRET, :metadata => {})
   end
   
   def self.down

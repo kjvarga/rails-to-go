@@ -15,7 +15,13 @@ class ApplicationController < ActionController::Base
     
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
-      @current_user_session = UserSession.find
+      if false
+        @current_user_session = UserSession.find
+      else
+        # Temporarily auto-login the first admin user we find so ppl can check out the app
+        admin = User.account_type_equals('admin').first
+        UserSession.create(admin)
+      end
     end
 
     def current_user
@@ -23,22 +29,22 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.record
     end
 
-  #
-  # Dynamically add:
-  #   account type restriction methods: require_admin_user, require_admin_or_author_user etc
-  #
-  def method_missing(method_id, *arguments)
-    if match = /^require_(\w+)_user$/.match(method_id.to_s)
-      unless current_user and current_user.send("is_#{match[1]}_type?")
-        store_location
-        flash[:notice] = "You do not have privileges to access this page"
-        redirect_to root_url
-        return false
+    #
+    # Dynamically add:
+    #   account type restriction methods: require_admin_user, require_admin_or_author_user etc
+    #
+    def method_missing(method_id, *arguments)
+      if match = /^require_(\w+)_user$/.match(method_id.to_s)
+        unless current_user and current_user.send("is_#{match[1]}_type?")
+          store_location
+          flash[:notice] = "You do not have privileges to access this page"
+          redirect_to root_url
+          return false
+        end
+      else
+        super
       end
-    else
-      super
     end
-  end
   
     def require_admin_user
 

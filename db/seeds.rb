@@ -6,5 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-require 'spec/blueprint'
-seed_database
+# There should always be one and only one server instance
+Server.create(:shared_secret => SiteDefaults::SHARED_SECRET, :metadata => {}) unless Server.count > 0
+    
+unless Rails.env.production?
+  require 'spec/blueprint'
+  seed_database
+end

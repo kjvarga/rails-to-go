@@ -5,7 +5,7 @@
     .right
       - if current_user
         Welcome,
-        = link_to(current_user.first_name || current_user.email, 'account')
+        = link_to(current_user.first_name || current_user.email, account_url)
         &nbsp;|&nbsp;
         = link_to 'Logout', logout_url
       - else

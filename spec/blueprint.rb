@@ -6,8 +6,8 @@ Sham.full_name  { Faker::Name.name }
 Sham.first_name { Faker::Name.first_name }
 Sham.last_name { Faker::Name.last_name }
 Sham.email { Faker::Internet.email }
-Sham.tag(:unique => false) { ["Adaptive", "Advanced", "Ameliorated", "Assimilated", "Automated", "Balanced", "Business-focused", "Centralized"].rand }
-Sham.content(:unique => false) { Faker::Lorem.paragraphs }
+Sham.tag(:unique => false) { ["Music", "Recipe", "Kazaa", "Gonzo Journalism", "Fake News", "Elton's Diary", "Climbing", "Twitter Rubbish"].rand }
+Sham.content(:unique => false) { Faker::Lorem.paragraphs.join("\n\n") }
 Sham.title { Faker::Company.catch_phrase }
 Sham.metadata_as_text(:unique => false) { "Name: KarlVarga\nRating: R" }
 Sham.user(:unique => false) { User.find :first, :order => 'RAND()' }
@@ -21,6 +21,14 @@ User.blueprint do
   email
   password "password"
   password_confirmation "password"
+end
+
+User.blueprint(:admin) do
+  account_type 'admin'
+end
+
+User.blueprint(:author) do
+  account_type 'author'
 end
 
 Post.blueprint do
@@ -44,31 +52,56 @@ Comment.blueprint do
 end
 
 def seed_database(counts={})
-  counts = { :users => 10, :posts => 30, :sites => 8 }.merge(counts)
+  counts = { :admins => 3, :authors => 6, :users => 3, :posts => 32, 
+    :sites => 8, :tags => 8 }.merge(counts)
   
-  until User.count == counts[:users]
-    u = User.new
-    until u.valid?
-      u.attributes = User.plan
+  until User.count >= counts[:users]
+    begin
+      u = User.make
+      puts "Created user #{u.email}"
+    rescue
     end
-    u.save!
-    puts "Created user #{u.email}"
   end
 
-  until Site.count == counts[:sites]
-    s = Site.new
-    until s.valid?
-      s.attributes = Site.plan
+  until User.account_type_equals('author').count >= counts[:authors]
+    begin
+      u = User.make(:author)
+      puts "Created author #{u.email}"
+    rescue
     end
-    s.save!
-    puts "Created site #{s.domain}"
+  end
+
+  until User.account_type_equals('admin').count >= counts[:admins]
+    begin
+      u = User.make(:admin)
+      puts "Created admin #{u.email}"
+    rescue
+    end
   end
   
-  until Post.count == counts[:posts]
+  until Site.count >= counts[:sites]
+    begin
+      s = Site.make
+      puts "Created site #{s.domain}"
+    rescue
+    end
+  end
+  
+  until Tag.count >= counts[:tags]
+    begin
+      t = Tag.make
+      puts "Created tag #{t.name}"
+    rescue
+    end
+  end
+  
+  until Post.count >= counts[:posts]
     p = Post.make(:user => Sham.user) do |post|
       rand(10).times { post.comments.make }
       post.sites = Site.find :all, :order => 'RAND()', :limit => rand(counts[:sites])
+      post.tag_list = TagList.new(Tag.find(:all, :order => 'RAND()', :limit => rand(4)).collect(&:name))
+      post.save
     end  
-    puts "Created post #{p.title}"  
+    puts "Created post #{p.title} [tags: #{p.tag_list.join(', ')}]"  
   end
 end
