@@ -1,0 +1,8 @@
+haml
+compass
+will_paginate
+authlogic
+searchlogic
+acts-as-taggable-on
+machinist
+acts_as_commentable
