@@ -1,6 +1,6 @@
 class SiteDefaults
-  NAME = "AirSyndicate"
-  HOST = "air-syndicate.local"
+  NAME = "ZieCreative"
+  HOST = "ziecreative.com"
   URL = "http://" + self::HOST
   META_SUBJECT = ""
   META_DESCRIPTION = ""
