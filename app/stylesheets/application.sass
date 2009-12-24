@@ -1,0 +1,202 @@
+@import blueprint.sass
+@import partials/base.sass
+
+/ Reset some annoying SASS styles
+textarea
+  :width auto
+  :height auto
+/ End reset
+
+/ Variables
+!navigation_height = 30px
+
+/ End variables
+  
+.left
+  :float left
+
+.right 
+  :float right
+  
+body.bp
+  line-height: 1.5
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif
+  color: #333333
+  font-size: 75%
+  .container
+    +container
+
+#header
+  a
+    :color #ffdd00
+    
+    &:visited
+      :color = #ffaa00
+    
+#header
+  +column(24)
+  :background-color = !theme_primary - #222
+  :margin-bottom 10px
+    
+  .top-bar
+    :height 40px
+    :font-size 1.1em
+    :padding 0 20px
+    :color white
+    :background-color = !theme_primary - #555
+    
+    .left, .right
+      :line-height 30px
+    .left
+      :float left
+      :font bold 20px Verdana
+      
+      a
+        :text-decoration none
+        :color white
+        
+    .right
+      :text-align right
+      :float none
+      
+  .logo
+    +column(5)
+    :float left
+    
+  .navigation
+    +column(24, true)
+    :float left
+    :background-color = !theme_primary - #222
+    :height = !navigation_height
+    
+    ul
+      :float left
+      :text-align left
+      :list-style none
+      :margin 0
+      
+    ul li
+      :float left
+      :line-height = !navigation_height
+      :padding 0 10px
+      :border-bottom 4px solid white
+      :background-color = !theme_primary - #222
+      
+      &.current
+        :background-color = !theme_primary - #555
+        :border-bottom = 4px solid !theme_primary - #555
+        
+      &:hover
+        :background-color = !theme_primary - #555
+        :cursor pointer
+        
+      a
+        :font-weight bold
+        :text-decoration none
+        
+      a:visited
+        :color = #ffdd00
+      
+form.general
+  :padding 5px
+  :background #efefef
+  :border 1px solid #e5e5e5
+
+  ol
+    :list-style none
+    :margin 1em
+
+  li
+    :clear left
+    input
+      :margin 0.1em 0 !important
+      &[type="checkbox"]
+        :margin 0.75em 0 0 0 !important
+
+    .fieldWithErrors
+      :display inline
+        
+  .indented
+    +prepend(3)
+    :margin 0.5em 0
+    :margin-left -10px
+    input
+      :padding 3px 10px
+      :background #151515
+      :border 1px solid #000
+      :color #FFF
+      :float left
+      :cursor pointer
+      
+  label, .label
+    +column(3)
+    :font-size 1.2em
+    :margin 0.5em 0
+    :float left
+  
+  .label
+    :margin 0
+    :font-weight bold
+  
+  .title  
+    :font-size 1.2em  
+
+.display-table
+  :font-size 1.2em
+  
+  .section-header
+    :clear both
+    :width 100%
+    :padding 3px
+    :background-color #efefef
+    :font-weight bold
+    
+  .left-col
+    :margin-right 15px
+    :float left
+    :clear left
+    :overflow hidden
+    
+  .right-col
+    :float left
+    :overflow hidden
+  
+  .separator
+    :height 0.6em
+    :clear both
+
+    
+#breadcrumbs
+  padding: 10px
+  font-size: 18px
+
+
+form.bp
+  .error
+    h2
+      :font-size 1.3em
+    p, ul
+      :margin-bottom 0.5em
+
+  select.title
+    :font-size 1.5em
+
+.recent
+  &.sites
+    .active-scaffold
+      +column(6, true)
+      +prepend(1)
+  .active-scaffold
+    +column(17, false)
+      
+
+#footer
+  +column(24)
+  :height 30px
+  :background-color = !theme_primary - #222
+  :margin-top 20px
+  :line-height 30px
+  :color white
+  
+  .content
+    :padding 0 30px

@@ -1,0 +1,29 @@
+%br  
+%h2
+  Your Profile
+
+- form_for @user, :url => account_url, :html => { :class => 'general bp span-15' } do |f|
+  %ol          
+    %li
+      .label
+        First Name:
+      .indented.title
+        =h @user.first_name
+    %li
+      .label
+        Last Name:
+      .indented.title
+        =h @user.last_name
+    %li
+      .label
+        Email:
+      .indented.title
+        =h @user.email
+    %li
+      .label
+        Account Type:
+      .indented.title
+        =h @user.account_type.titleize
+    %li.indented
+      = f.submit "Edit", :onclick => "javascript: document.location.href = '#{edit_account_path}'; return false;"
+    %br

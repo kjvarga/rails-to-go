@@ -1,0 +1,12 @@
+%br  
+%h2
+  Edit Profile
+  
+- form_for @user, :url => account_url, :html => { :class => 'general bp span-11' } do |f|
+  = display_error_messages { f.error_messages }
+  %ol          
+    = render :partial => "form", :object => f
+    %li.indented
+      = f.submit "Submit", :style => 'margin-right: 10px !important;'
+      = f.submit "Cancel", :onclick => "javascript: document.location.href = '#{account_url}'; return false;"
+    %br

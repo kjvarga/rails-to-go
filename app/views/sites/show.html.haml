@@ -1,0 +1,19 @@
+- title "Site"
+%p
+  %strong
+    Domain:
+  = h @site.domain
+%p
+  %strong
+    Site Hash:
+  = h @site.site_hash
+%p
+  %strong
+    Domain Hash:
+  = h @site.domain_hash
+%p
+  = link_to "Edit", edit_site_path(@site)
+  |
+  = link_to "Destroy", @site, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", sites_path

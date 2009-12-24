@@ -1,0 +1,22 @@
+one:
+  domain: MyString
+  site_hash: MyString
+  domain_hash: MyString
+
+two:
+  domain: MyString
+  site_hash: MyString
+  domain_hash: MyString
+
+
+# == Schema Info
+# Schema version: 20090925080529
+#
+# Table name: sites
+#
+#  id          :integer         not null, primary key
+#  domain      :string(255)
+#  domain_hash :string(255)
+#  site_hash   :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime

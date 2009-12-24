@@ -1,0 +1,5 @@
+- if current_user && current_user.is_admin_or_author_type?
+  .recent.posts
+    = render :active_scaffold => 'scaffold/posts_list', :label => 'Recent Posts'
+  .recent.sites.last
+    = render :active_scaffold => 'scaffold/sites_list'
